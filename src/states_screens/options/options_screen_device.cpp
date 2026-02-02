@@ -306,6 +306,11 @@ void OptionsScreenDevice::updateInputButtons()
          action=PlayerAction(action+1))
     {
         const irr::core::stringw item = m_config->getMappingIdString(action);
+        if (item == "none") 
+        {
+            actions->markItemBlue( KartActionStrings[action] );
+            continue; 
+        }
         if (currently_used_keys.find(item) == currently_used_keys.end())
         {
             currently_used_keys.insert( item );
